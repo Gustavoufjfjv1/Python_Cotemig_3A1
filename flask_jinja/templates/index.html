@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Página Inicial
+{% endblock %}
+
+{% block content %}
+<p>Olá, {{ usuario["nome"]}}</p>
+
+<p>Nome: {{ usuario["nome"] }} | Idade: {{usuario["idade"]}}</p>
+
+<p>{{usuario}}</p>
+
+{% for aluno in alunos %}
+    <p>{{ loop.index }} - {{ aluno["nome"] }}</p>
+{% endfor %}
+
+{% for aluno in alunos %}
+    {% if aluno["nota"] >= 7 %}
+        <p>Aprovado</p>
+    {% else %}
+
+<p>Reprovado</p>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
