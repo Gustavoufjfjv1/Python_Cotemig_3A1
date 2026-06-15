@@ -1,15 +1,13 @@
 from flask import Blueprint, redirect, render_template, request, url_for
-
 from models import Colecionador, Figurinha, ItemOferta, OfertaTroca, db
 
-# Apelido "figurinhas" → use url_for('figurinhas.index') nos templates
 figurinhas_bp = Blueprint("figurinhas", __name__, url_prefix="/figurinhas")
 
 
 @figurinhas_bp.route("/")
 def index():
-    # TODO ALUNO: ofertas = OfertaTroca.listar_com_colecionador()
-    return render_template("figurinhas/lista_ofertas.html", ofertas=[])
+    ofertas = OfertaTroca.listar_com_colecionador()
+    return render_template("lista_ofertas.html", ofertas=ofertas)
 
 
 @figurinhas_bp.route("/oferta/cadastrar", methods=["GET", "POST"])
@@ -18,11 +16,33 @@ def cadastrar_oferta():
     figurinhas = Figurinha.listar()
 
     if request.method == "POST":
-        # TODO ALUNO: criar OfertaTroca + ItemOferta (oferece/deseja)
-        pass
+        nova_oferta = OfertaTroca(
+            colecionador_id=request.form.get("colecionador_id"),
+            observacao=request.form.get("observacao")
+        )
+        db.session.add(nova_oferta)
+        db.session.flush()
+
+        item_oferece = ItemOferta(
+            oferta_id=nova_oferta.id,
+            figurinha_id=request.form.get("figurinha_oferece_id"),
+            tipo="oferece"
+        )
+        
+        item_deseja = ItemOferta(
+            oferta_id=nova_oferta.id,
+            figurinha_id=request.form.get("figurinha_deseja_id"),
+            tipo="deseja"
+        )
+
+        db.session.add(item_oferece)
+        db.session.add(item_deseja)
+        db.session.commit()
+
+        return redirect(url_for("figurinhas.index"))
 
     return render_template(
-        "figurinhas/formulario_oferta.html",
+        "formulario_oferta.html",
         colecionadores=colecionadores,
         figurinhas=figurinhas,
     )

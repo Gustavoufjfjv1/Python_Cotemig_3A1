@@ -7,8 +7,7 @@ class Colecionador(ModeloBase):
 
     apelido = db.Column(db.String(60), nullable=False)
     cidade = db.Column(db.String(80), nullable=False)
-    ofertas = db.Column(db.String(80), nullable=False)
-    # TODO ALUNO: relationship ofertas
+    ofertas = db.relationship('OfertaTroca', back_populates='colecionador')
 
     @classmethod
     def listar(cls):

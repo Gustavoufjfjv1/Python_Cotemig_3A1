@@ -5,7 +5,7 @@ from flask import Flask
 # Cada "bp" importado é um Blueprint — um pacote de rotas (clientes, pedidos, etc.)
 from controllers import figurinhas_bp
 from models import Colecionador, Figurinha, OfertaTroca, db
-
+from dados_iniciais import popular_dados
 
 def criar_app():
     app = Flask(
@@ -32,6 +32,7 @@ def criar_app():
 
     with app.app_context():
         db.create_all()
+        popular_dados()
 
     return app
 
