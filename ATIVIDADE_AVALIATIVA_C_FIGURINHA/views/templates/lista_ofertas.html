@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Troca de Figurinhas{% endblock %}
+
+{% block content %}
+<h1>Ofertas de troca — Copa do Mundo</h1>
+<p><a class="btn" href="{{ url_for('figurinhas.cadastrar_oferta') }}">+ Nova oferta</a></p>
+
+{# TODO ALUNO: loop ofertas #}
+<table>
+    <thead>
+        <tr>
+            <th>Nome Colecionador</th>
+            <th>Cidade</th>
+            <th>Data</th>
+            <th>Observação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for oferta in ofertas %}
+        <tr>
+            <!-- TODO: oferta.colecionador.apelido, cidade, observacao, data_criacao -->
+            <td>{{oferta.colecionador.apelido}}</td>
+            <td>{{oferta.colecionador.cidade}}</td>
+            <td>{{oferta.colecionador.data_criacao}}</td>
+            <td>{{oferta.observacao}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
