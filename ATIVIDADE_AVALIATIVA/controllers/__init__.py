@@ -1,1 +1,0 @@
-from .figurinha_controller import figurinhas_bp

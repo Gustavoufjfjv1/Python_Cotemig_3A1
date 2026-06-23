@@ -1,0 +1,8 @@
+"""
+ATIVIDADE AULA 11 — Models por cenário (1,0 ponto)
+
+Aluno: Gustavo Henrique Reis Meireles 3A1 12402095
+Cenário escolhido (A, B ou C): 
+  C = Troca de figurinhas Copa do Mundo
+
+"""
