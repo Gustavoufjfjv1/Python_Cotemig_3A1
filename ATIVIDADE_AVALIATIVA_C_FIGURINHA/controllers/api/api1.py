@@ -32,7 +32,7 @@ def api_listar_ofertas():
 def api_detalhe_oferta(oferta_id):
     oferta = db.session.get(OfertaTroca, oferta_id)
     if not oferta:
-        return jsonify({"erro": "Oferta não encontrada"}), #TODO QUAL ERRO APARECE QUANDO NÃO ENCONTRA A OFERTA?
+        return jsonify({"erro": "Oferta não encontrada"}), #TODO QUAL ERRO APARECE QUANDO NÃO ENCONTRA A OFERTA? -- "Oferta não encontrada"
     return jsonify({
         "id": oferta.id,
         "colecionador": oferta.colecionador.apelido,
