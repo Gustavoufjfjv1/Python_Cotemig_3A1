@@ -3,8 +3,9 @@ import os
 from flask import Flask
 
 # Cada "bp" importado é um Blueprint — um pacote de rotas (clientes, pedidos, etc.)
-from controllers import figurinhas_bp, dashboard_bp
+from controllers import figurinhas_bp, dashboard_bp, api_v1_bp
 from models import Colecionador, Figurinha, OfertaTroca, db
+
 from dados_iniciais import popular_dados
 
 def criar_app():
@@ -29,6 +30,7 @@ def criar_app():
     # pedidos_bp  → URLs começam com /pedidos
     app.register_blueprint(figurinhas_bp)
     app.register_blueprint(dashboard_bp)
+    app.register_blueprint(api_v1_bp)
 
 
     with app.app_context():
