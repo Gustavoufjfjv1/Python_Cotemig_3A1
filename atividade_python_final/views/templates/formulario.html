@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{% if tarefa %}Editar tarefa{% else %}Nova tarefa{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if tarefa %}Editar tarefa{% else %}Nova tarefa{% endif %}</h1>
+
+<form method="POST">
+    <div class="form-grupo">
+        <label for="titulo">Título</label>
+        <input id="titulo" type="text" name="titulo" maxlength="60" value="{{ tarefa.titulo if tarefa else '' }}" required>
+    </div>
+    <div class="form-grupo">
+        <label for="descricao">Descrição</label>
+        <input id="descricao" type="text" name="descricao" maxlength="80" value="{{ tarefa.descricao if tarefa else '' }}" required>
+    </div>
+    <div class="form-grupo">
+        <label for="status">Status</label>
+        <select id="status" name="status" required>
+            {% for status in ["Pendente", "Em andamento", "Concluída"] %}
+            <option value="{{ status }}" {% if tarefa and tarefa.status == status %}selected{% endif %}>{{ status }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">{% if tarefa %}Atualizar{% else %}Salvar{% endif %}</button>
+</form>
+
+<p><a href="{{ url_for('dashboard.index') }}">Voltar</a></p>
+{% endblock %}

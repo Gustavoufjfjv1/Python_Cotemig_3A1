@@ -1,0 +1,269 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: #f0f4f8;
+    color: #1e293b;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav {
+    background: #166bbb;
+    padding: 14px 24px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 4px solid #87ceeb;
+}
+
+.nav img {
+    height: 36px;
+    margin-right: 12px;
+}
+    
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.nav a:hover {
+    color: #b3e5fc;
+}
+
+.nav strong {
+    color: #ffffff;
+    margin-right: auto;
+}
+
+.tema {
+    padding: 7px 12px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 960px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.cards {
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 28px;
+    text-align: center;
+}
+
+.card-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #166bbb;
+}
+
+.card-label {
+    color: #64748b;
+}
+
+.status-pendente {
+    border-color: #e67e22;
+}
+
+.status-em-andamento {
+    border-color: #166bbb;
+}
+
+.status-concluída {
+    border-color: #27ae60;
+}
+
+.filtro {
+    margin: 20px 0;
+}
+
+.filtro label {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.filtro select {
+    width: auto;
+}
+
+.tarefas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.tarefa {
+    padding: 16px;
+    border: 2px solid #166bbb;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.tarefa h2 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+}
+
+.status {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.acoes a {
+    margin-right: 8px;
+}
+
+#grafico-progresso {
+    max-height: 300px;
+    margin-top: 28px;
+    padding: 12px;
+    background: #ffffff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+th {
+    background: #166bbb;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+tr:hover td {
+    background: #f8fafc;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #166bbb;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.btn:hover {
+    background: #115393;
+}
+
+.form-grupo {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1e293b;
+}
+
+input, select {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #1e293b;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background: #166bbb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+button[type="submit"]:hover {
+    background: #115393;
+}
+
+a {
+    text-decoration: none;
+    color: #166bbb;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #115393;
+}
+
+.vazio {
+    color: #64748b;
+    font-style: italic;
+}
+
+h1 {
+    color: #1e293b;
+    border-bottom: 3px solid #166bbb;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.escuro {
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+.escuro .tarefa,
+.escuro #grafico-progresso,
+.escuro table {
+    background: #1e293b;
+}
+
+.escuro .card-label,
+.escuro label {
+    color: #cbd5e1;
+}
+
+.escuro input,
+.escuro select {
+    background: #1e293b;
+    color: #ffffff;
+    border-color: #475569;
+}
+
+@media (max-width: 600px) {
+    .nav {
+        flex-wrap: wrap;
+    }
+
+    .nav strong {
+        width: 100%;
+    }
+}

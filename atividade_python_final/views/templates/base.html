@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Tarefas{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="nav">
+        <strong>Minhas tarefas</strong>
+        <a href="{{ url_for('dashboard.index') }}">Início</a>
+        <a href="{{ url_for('dashboard.nova_tarefa') }}">Nova tarefa</a>
+        <button class="tema" type="button" onclick="alternarTema()">Modo escuro</button>
+    </nav>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+<script>
+    function alternarTema() {
+        document.body.classList.toggle('escuro');
+        localStorage.setItem('modo-escuro', document.body.classList.contains('escuro'));
+    }
+    if (localStorage.getItem('modo-escuro') === 'true') {
+        document.body.classList.add('escuro');
+    }
+</script>
+</html>
